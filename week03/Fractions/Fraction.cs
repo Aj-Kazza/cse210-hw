@@ -20,8 +20,17 @@ public class Fraction
         _top = top;
         _bottom = bottom;
     }
+    public int getTop()
+    {
+        int get = _top;
+        return get;
+    }
 
-
+    public int getBottom()
+    {
+        int get = _bottom;
+        return get;
+    }
 
     public string GetFractionString()
     {
