@@ -23,6 +23,10 @@ public class Scripture
         _words[numberToHide].Hide();
     }
 
+    public bool GetHiddenStatus(int indexNumber)
+    {
+        return _words[indexNumber].IsHidden();
+    }
 
     public string GetDisplayText()
     {
@@ -39,6 +43,24 @@ public class Scripture
 
     public bool IsCompletelyHidden()
     {
-        return true;
+        int totalHidden = 0;
+        int totalCount = _words.Count();
+
+        foreach (Word word in _words)
+        {
+            if (word.IsHidden() == true)
+            {
+                totalHidden ++;
+            }
+        }
+        if (totalHidden == totalCount)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 }
