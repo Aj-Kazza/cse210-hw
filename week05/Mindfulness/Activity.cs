@@ -2,9 +2,9 @@ using System;
 
 public class Activity
 {
-    private string _name = "";
-    private string _description = "";
-    private int _duration = 0;
+    private string _name;
+    private string _description;
+    private int _duration;
 
     public Activity()
     {
@@ -20,72 +20,99 @@ public class Activity
         Console.Write("How long, in seconds, would you like for your session? ");
         string duration = Console.ReadLine();
         _duration = int.Parse(duration);
+
+        Console.Clear();
+
+        Console.WriteLine("Get Ready");
+        ShowSpinner(3);
+        Console.Write("\b \b");
+        Console.WriteLine();
+
     }
 
     public void DisplayEndingMessage()
     {
         Console.WriteLine("Well done!!");
         Console.WriteLine();
-        Console.WriteLine($"You have completed another {_duration} of {_name} Activity");
+        Console.WriteLine($"You have completed another {_duration} seconds of {_name} Activity");
         
     }
     public void ShowSpinner(int seconds)
     {
+        Console.Write("|");
+        Thread.Sleep(125);
+        int tick = seconds;
+        while (tick != 0)
         
-        Console.Write("|");
+        {
+            
+            Console.Write("\b \b");
+            Console.Write("/");
+            Thread.Sleep(125);
+            Console.Write("\b \b");
+            Console.Write("-");
+            Thread.Sleep(125);
+            Console.Write("\b \b");
+            Console.Write("\\");
+            Thread.Sleep(125);
+            Console.Write("\b \b");
+            Console.Write("|");
+            Thread.Sleep(125);
+            Console.Write("\b \b");
+            Console.Write("/");
+            Thread.Sleep(125);
+            Console.Write("\b \b");
+            Console.Write("-");
+            Thread.Sleep(125);
+            Console.Write("\b \b");
+            Console.Write("\\"); 
+            Thread.Sleep(125);
+            
+            tick = tick -1;
+        }
 
-        Thread.Sleep(500);
-
-        Console.Write("\b \b");
-
-        Thread.Sleep(500);
-
-        Console.Write("\b \b");
-        Console.Write("/");
-
-        Thread.Sleep(500);
-
-        Console.Write("\b \b");
-        Console.Write("-");
-
-        Thread.Sleep(500);
-
-        Console.Write("\b \b");
-        Console.Write("\\");
-
-        Thread.Sleep(500);
-
-        Console.Write("\b \b");
-        Console.Write("|");
-
-        Thread.Sleep(500);
-
-        Console.Write("\b \b");
-        Console.Write("/");
-
-        Thread.Sleep(500);
-
-        Console.Write("\b \b");
-        Console.Write("-");
-
-        Thread.Sleep(500);
-
-        Console.Write("\b \b");
-        Console.Write("\\");
+        
     }
 
     public void ShowCountDown(int seconds)
     {
-        Console.Write("3");
+        int tick = seconds;
+        while (tick != 0)
+        {
+            Console.Write(tick);
+            Thread.Sleep(1000);
+            tick = tick - 1;
+            Console.Write("\b \b");
+        }
+    }
 
-        Thread.Sleep(500);
+    public void SetName(string name)
+    {
+        _name = name;
+    }
 
-        Console.Write("\b \b");
-        Console.Write("2"); 
+    public string GetName()
+    {
+        return _name;
+    }
 
-        Thread.Sleep(500);
+    public void SetDescription(string description)
+    {
+        _description = description;
+    }
 
-        Console.Write("\b \b"); 
-        Console.Write("1");
+    public string GetDescription()
+    {
+        return _description;
+    }
+
+    public void SetDuration(int duration)
+    {
+        _duration = duration;
+    }
+    
+    public int GetDuration()
+    {
+        return _duration;
     }
 }
