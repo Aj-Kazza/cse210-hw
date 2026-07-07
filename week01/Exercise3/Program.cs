@@ -8,7 +8,7 @@ class Program
 
         Random randomNumber = new Random();
 
-        int magicNumber = randomNumber.Next(1,100);
+        int magicNumber = randomNumber.Next(1,101);
 
         int guess = -1;
 

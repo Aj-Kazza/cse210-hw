@@ -4,7 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Exercise4 Project.");
 
         List<int> numbers;
         numbers = new List<int>();
@@ -32,7 +31,7 @@ class Program
         }
         Console.WriteLine($"Sum is: {total}");
         //Console.WriteLine($"Count is: {count}");
-        int average = total / count;
+        double average = (double)total / count;
         Console.WriteLine($"Average is: {average}");
 
         int maximum = numbers.Max();
