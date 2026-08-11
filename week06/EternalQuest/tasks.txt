@@ -1,0 +1,2 @@
+0
+SimpleGoal|cook dinner|prepare and cook food for dinner|50|False
